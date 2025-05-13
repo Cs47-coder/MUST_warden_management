@@ -1,0 +1,101 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 60% 98%;
+    --foreground: 260 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 15% 15%;
+
+    --primary: 260 80% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 175 70% 30%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 260 10% 90%;
+    --muted-foreground: 260 15% 40%;
+
+    --accent: 175 70% 90%;
+    --accent-foreground: 175 70% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 260 20% 85%;
+    --input: 260 20% 85%;
+    --ring: 260 80% 50%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative px-4 py-2 transition-colors duration-300 hover:text-primary;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute w-0 h-1 bg-primary left-0 -bottom-1 rounded transition-all duration-300 ease-in-out;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .nav-link.active {
+    @apply text-primary font-medium;
+  }
+  
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-br from-warden-light via-warden to-warden-dark;
+  }
+  
+  .gradient-bg-secondary {
+    @apply bg-gradient-to-br from-tools-light via-tools to-tools-dark;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all duration-200 focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:outline-none;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-all duration-200 focus:ring-2 focus:ring-secondary focus:ring-opacity-50 focus:outline-none;
+  }
+
+  .animate-enter {
+    @apply animate-fade-in;
+  }
+  
+  .animate-enter-slide {
+    @apply animate-slide-in;
+  }
+  
+  .animate-enter-bounce {
+    @apply animate-bounce-in;
+  }
+}
