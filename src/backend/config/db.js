@@ -3,16 +3,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+// Create the pool using a connection string if provided
 const pool = new Pool({
-  db_url : process.env.db_url,
-  host: process.env.DB_HOST,
-  /*
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  */
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // Required for Neon
+  },
 });
 
 export default pool;
