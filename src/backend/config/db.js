@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Create the pool using a connection string if provided
+// Create the pool using a connection string if provided for db
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
