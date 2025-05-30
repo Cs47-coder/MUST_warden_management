@@ -47,7 +47,7 @@ const Dashboard = ({ isAdmin }: DashboardProps) => {
 
   const fetchWardens = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/wardens');
+      const response = await axios.get('https://must-warden-management-1.onrender.com/api/wardens');
       setWardens(response.data);
     } catch (error) {
       toast({
@@ -60,7 +60,7 @@ const Dashboard = ({ isAdmin }: DashboardProps) => {
 
   const fetchTools = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/tools');
+      const response = await axios.get('https://must-warden-management-1.onrender.com/api/tools');
       setTools(response.data);
     } catch (error) {
       toast({
@@ -74,7 +74,7 @@ const Dashboard = ({ isAdmin }: DashboardProps) => {
   // Admin control handlers
   const handleAddWarden = async (data: Omit<Warden, "id">) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/wardens', data);
+      const response = await axios.post('https://must-warden-management-1.onrender.com/api/wardens', data);
       setWardens([...wardens, response.data]);
       toast({
         title: "Success",
@@ -91,7 +91,7 @@ const Dashboard = ({ isAdmin }: DashboardProps) => {
 
   const handleUpdateWarden = async (id: string, data: Omit<Warden, "id">) => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/wardens/${id}`, data);
+      const response = await axios.put(`https://must-warden-management-1.onrender.com/api/wardens/${id}`, data);
       setWardens(wardens.map(warden => warden.id === id ? response.data : warden));
       setEditingWarden(null);
       toast({
@@ -109,7 +109,7 @@ const Dashboard = ({ isAdmin }: DashboardProps) => {
 
   const handleDeleteWarden = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/wardens/${id}`);
+      await axios.delete(`https://must-warden-management-1.onrender.com/api/wardens/${id}`);
       setWardens(wardens.filter(warden => warden.id !== id));
       toast({
         title: "Success",
@@ -126,7 +126,7 @@ const Dashboard = ({ isAdmin }: DashboardProps) => {
 
   const handleAddTool = async (data: Omit<Tool, "id">) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/tools', data);
+      const response = await axios.post('https://must-warden-management-1.onrender.com/api/tools', data);
       setTools([...tools, response.data]);
       toast({
         title: "Success",
@@ -143,7 +143,7 @@ const Dashboard = ({ isAdmin }: DashboardProps) => {
 
   const handleUpdateTool = async (id: string, data: Omit<Tool, "id">) => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/tools/${id}`, data);
+      const response = await axios.put(`https://must-warden-management-1.onrender.com/api/tools/${id}`, data);
       setTools(tools.map(tool => tool.id === id ? response.data : tool));
       setEditingTool(null);
       toast({
@@ -161,7 +161,7 @@ const Dashboard = ({ isAdmin }: DashboardProps) => {
 
   const handleDeleteTool = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tools/${id}`);
+      await axios.delete(`https://must-warden-management-1.onrender.com/api/tools/${id}`);
       setTools(tools.filter(tool => tool.id !== id));
       toast({
         title: "Success",
