@@ -33,7 +33,7 @@ const Warden = () => {
       <footer className="bg-muted py-8 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-muted-foreground">
-            © {new Date().getFullYear()} MUST Warden Management System. All rights reserved.
+            © {new Date().getFullYear()} MUST Warden Management System...
           </p>
         </div>
       </footer>
